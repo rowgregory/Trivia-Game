@@ -1,0 +1,33 @@
+#startBtn {
+    padding:15px;
+    font-size: 16px;
+}
+
+body {
+    background: url(../images/jungle.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#_directionText {
+    background-color: #777;
+
+}
+
+#_questionText {
+    background: #ebebeb;
+}
+
+._answerList {
+    background: #777;
+}
+
+#_message {
+    background: #777;
+}
+
+#_correctedAnswer {
+    background:#777;
+}
