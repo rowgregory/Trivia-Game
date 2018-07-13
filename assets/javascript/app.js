@@ -152,8 +152,8 @@ var timer;
             if (seconds === 0){
                 clearInterval(timer);
                 //answered = false;
-                generateLossDueToTimeOut()
-                
+                //generateLossDueToTimeOut()
+                stopTime();
                                
             } else if (seconds > 0) {
                 seconds--;
@@ -175,15 +175,15 @@ var timer;
         
     // }
 
-    function generateLossDueToTimeOut() {
-        //unanswered++;
-        // gameHTML = "<p class='text-center timer-p'></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer] + "</p>";
-        // $("#_unanswered").html(gameHTML);
-        setTimeout(wait, 1000);
-        answerPage();
-        //console.log(gameHTML);
-        //nextQuestion = setTimeout(reset, 5000);
-    }
+    // function generateLossDueToTimeOut() {
+    //     //unanswered++;
+    //     // gameHTML = "<p class='text-center timer-p'></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer] + "</p>";
+    //     // $("#_unanswered").html(gameHTML);
+    //     setTimeout(wait, 1000);
+    //     answerPage();
+    //     //console.log(gameHTML);
+    //     //nextQuestion = setTimeout(reset, 5000);
+    // }
 
     function wait() {
         if (questionCounter < 9) {
@@ -204,11 +204,14 @@ var timer;
         
     }
   
-    // function timeOutLoss() {
-    //     unanswered++;
-    //     setTimeout(3000);
-        
-    // }
+    function stopTime () {
+        clearInterval(timer);
+        resetTimer();
+        if(currentQuestion < triviaQuestions.length - 1){
+            unanswered++;
+            setTimeout(answerPage, 3000);
+        }
+    }
 
     function answerPage() {
         $('#_currentQuestion').empty();
