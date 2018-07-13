@@ -45,10 +45,11 @@ var triviaQuestions = [{
 
 
 var currentQuestion;
-var questionCounter;
+var questionCounter = 0;
 var correctAnswer;
 var incorrectAnswer;
 var unanswered;
+var answered;
 
 var time;
 var seconds = 5;
@@ -63,6 +64,8 @@ finished: "If we can't live together, were going to die alone."
 }
 
 var interval;
+var indexQandA = 0;
+var nextQuestion;
 var count = 0;
 // var gameHTML;
 var openScreen;
@@ -90,7 +93,7 @@ var timer;
         
     $("#mainArea").on("click", ".start-button", function(event){
         // clickSound.play();
-        $('.jumbotron').hide();
+        $('.jumbotron').fadeOut();
             newGame();
         });
 
@@ -139,6 +142,8 @@ var timer;
             answerPage();
             resetTimer();
         });             
+        
+        
     }
 
     function timeWrapper() {
@@ -146,24 +151,57 @@ var timer;
         function thirtySeconds() {
             if (seconds === 0){
                 clearInterval(timer);
-                //timeOutLoss();
                 //answered = false;
-                for(var i = 1; i < triviaQuestions.length; i++){
-                triviaQuestions[currentQuestion].question[i];
-                }
-            }
-            if (seconds > 0) {
+                generateLossDueToTimeOut()
+                
+                               
+            } else if (seconds > 0) {
                 seconds--;
                 //answered = true;
+                
             }
+            
             $("#timer").html(seconds + " seconds left");
+        }
+        
+    }
+
+    // Resets paramaters for next question...
+	// function reset() {
+	// 	seconds = 15;
+    //     indexQandA++;
+    //     nextQuestion = setTimeout(reset, 5000);
+        
+        
+    // }
+
+    function generateLossDueToTimeOut() {
+        //unanswered++;
+        // gameHTML = "<p class='text-center timer-p'></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer] + "</p>";
+        // $("#_unanswered").html(gameHTML);
+        setTimeout(wait, 1000);
+        answerPage();
+        //console.log(gameHTML);
+        //nextQuestion = setTimeout(reset, 5000);
+    }
+
+    function wait() {
+        if (questionCounter < 9) {
+        questionCounter++;
+        
+        seconds = 15;
+        timeWrapper();
+        }
+        else {
+            
         }
     }
 
     function resetTimer() {
         clearInterval(timer);
-        $("#timer").empty();
+        // $("#timer").empty();
         seconds = 15;
+        
     }
   
     // function timeOutLoss() {
@@ -183,6 +221,7 @@ var timer;
 
         if ((userSelect == rightAnswerIndex) && (answered == true)) {
             correctAnswer++;
+            console.log(correctAnswer);
             $('#_message').html(messages.correct);
         } else if((userSelect != rightAnswerIndex) && (answered == true)){
             incorrectAnswer++;
@@ -192,7 +231,9 @@ var timer;
             unanswered++;
             $('#_message').html(messages.endTime);
             $('#_correctedAnswer').html('The correct answer was: ' + rightAnswerText);
-            //answered = false;
+            answered = true;
+            
+            
             
         }
 
@@ -213,7 +254,7 @@ var timer;
         $('#_finalMessage').html(messages.finished);
         $('#_correctAnswers').html("Correct Answers: " + correctAnswer);
         $('#_incorrectAnswers').html("Incorrect Answers: " + incorrectAnswer);
-        $('#_unanswered').html("Unanswered: " + endTime);
+        $('#_unanswered').html("Unanswered: " + unanswered);
         $('#_startOverBtn').addClass('reset');
         $('#_startOverBtn').show();
         $('#_startOverBtn').html('Start Over?');

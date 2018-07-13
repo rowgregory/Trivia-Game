@@ -31,3 +31,23 @@ body {
 #_correctedAnswer {
     background:#777;
 }
+
+#_unanswered {
+    background: grey;
+}
+
+#_startOverBtn {
+    background: grey;
+}
+
+#_incorrectAnswers {
+    background: grey;
+}
+
+#_correctAnswers {
+    background: grey;
+}
+
+#_finalMessage {
+    background: grey;
+}
