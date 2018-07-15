@@ -8,42 +8,56 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
 </head>
 <body>
     
-    
-    <div class="container">
-    <div class="jumbotron">
-        <div id="_directionText" class="text-center pb-2"></div>
-        <div id="mainArea"></div>
+    <div class ="jumboWrapper">
+        <div class="jumbotron vertical-center">
+            <div id="_directionText" class="text-center pb-2"></div>
+            <div id="mainArea"></div>
+        </div>
     </div>
-    
-        <div id="score" class = "scoreboard"></div>
-        <div id="timer" class = "scoreboard bg-success text-center"></div>
 
-        <div id="_questionText" class = "text-center"></div>
+    <div id="container" style="display:none">
+               
+            <div id="timer" class = "scoreboard text-center"></div>
+            <div id="_questionText" class = "text-center"></div>                            
+            <div id="_currentQuestion" class = "text-center"></div>
+
+            <img id = "blankImage" src=""  height="28%">
             
-        <div id="_timeRemaining"></div>
-        <div id="_currentQuestion" class = "bg-danger text-center"></div>
-        <div class="_question"></div>
-        <div class="_answerList"></div>
+            <div class="_answerList text-center"></div>
 
-        <div id="_message"></div>
-        <div id="_correctedAnswer"></div>
-        <div id="_gif"></div>
+            <div id="_message"></div>
+            <div id="_correctedAnswer"></div>
+            <div id="_correctCorrect"></div>
+            <div id="_finalMessage"></div>
+            <div id="_startOverBtn"></div>
 
-        <div id="_finalMessage"></div>
-        <div id="_correctAnswers"></div>
-        <div id="_incorrectAnswers"></div>
-        <div id="_unanswered"></div>
-        <div id="_startOverBtn"></div>
-        
-        
+            <div id="displayBox"> 
+                               
+                <div id="_correctAnswers"></div>
+                <div id="_incorrectAnswers"></div>
+                <div id="_unanswered"></div>
+                <div id="_fraction"></div>
+            </div>
+            
     </div>
+
+    <audio id="mysoundclip" preload="auto">
+        <source src="./assets/audio/multimedia_button_click_007.mp3"> </source>
+
+    </audio>
+        
+    
+    
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
