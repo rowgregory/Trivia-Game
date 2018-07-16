@@ -67,16 +67,16 @@ $(document).ready(function() {
 
     var userSelect;
     var messages = {correct: {
-        text: "Don't tell me what I can't do.",
+        text: "Don't tell me what I can't do!",
         image: "assets/images/correstMessageLost.gif",
         },incorrect: {
         text: "It's never been easy!",
         image: "assets/images/incorrectMessageLost.gif",
         }, endTime: {
-        text: "See you in another life, brother.",
+        text: "See you in another life, brother!",
         image: "assets/images/unansweredMessageLost.gif",
         }, finished: {
-        text: "If we can't live together, were going to die alone.",
+        text: "If we can't live together, were going to die alone!",
         image: "assets/images/finishedMessageLost.gif",
         }}
 
@@ -255,12 +255,12 @@ $(document).ready(function() {
             }
 
             if(currentQuestion == (triviaQuestions.length-1)){
-                setTimeout(scoreboard, 1000);
+                setTimeout(scoreboard, 3000);
                 
                 
             } else{
                 currentQuestion++;
-                setTimeout(newQuestion, 1000);    
+                setTimeout(newQuestion, 5000);    
             }
         }
 
