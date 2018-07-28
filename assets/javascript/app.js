@@ -82,8 +82,7 @@ $(document).ready(function() {
 
         
         function begin() {
-            $('.jumbotron').addClass('animated zoomInDown'); 
-               
+            $('.jumbotron').addClass('animated zoomInDown');      
         }
         
         begin();
@@ -178,6 +177,7 @@ $(document).ready(function() {
                 var choices = $('<div>');
                 choices.text(triviaQuestions[currentQuestion].answerList[i]);
                 choices.attr({'data-index': i });
+                choices.attr({'id':'animate'});
                 choices.addClass('thisChoice animated rotateInDownLeft');
                 $('._answerList').append(choices);
             }
